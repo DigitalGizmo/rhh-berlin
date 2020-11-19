@@ -1,5 +1,7 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
 <div id="primary">
+    
+    <!-- Item Title -->
     <h1><?php echo metadata('item', array('Dublin Core','Title')); ?></h1>
 
     <?php if ((get_theme_option('Item FileDisplay') == 1) && metadata('item', 'has files')): ?>
@@ -23,7 +25,14 @@
       </div>
    <?php endif; ?>-->
 
-   <hr>
+     <div class="element story">
+        <!-- <h3>Story</h3> -->
+        <div class="element-text">
+            <?php echo metadata('item', array('Item Type Metadata','Story')) ?>
+        </div>
+    </div>  
+
+    <hr>
 
     <div class="element">
         <h3>Topic</h3>
@@ -42,11 +51,7 @@
         <div class="element-text"><?php echo metadata('item', array('Dublin Core','Identifier')) ?></div>
     </div>
 
-    <div class="element">
-        <h3>Story</h3>
-        <div class="element-text"><?php echo metadata('item', array('Item Type Metadata','Story')) ?></div>
-    </div>
-
+    <!-- if item is a manuscript, show transcription -->
     <?php if(metadata('item', array('Item Type Metadata','Text'))): ?>
       <div class="element">
         <h3>Transcription</h3>
@@ -62,7 +67,7 @@
     </div>
     <?php endif;?>
 
-    <!-- The following prints a citation for this item. -->
+    <!-- The following prints a citation for this item -->
     <div id="item-citation" class="element">
         <h3><?php echo __('Citation'); ?></h3>
         <div class="element-text"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></div>

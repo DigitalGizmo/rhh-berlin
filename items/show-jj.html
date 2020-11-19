@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="" lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
+    <meta name="description" content="A collaborative website that presents historical resources about the American Revolution contributed by museums and historical organizations throughout the Pioneer Valley of western Massachusetts. Developed by the Pioneer Valley History Network with funding from MassHumanitites." />
+    
+    <title>A Loyalist Childhood: Sampler Made by Anna Stoddard, 1782 &middot; Revolution Happened Here</title>
+
+    <link rel="alternate" type="application/rss+xml" title="Omeka RSS Feed" href="/items/browse?output=rss2" />
+    <link rel="alternate" type="application/atom+xml" title="Omeka Atom Feed" href="/items/browse?output=atom" />
+    
+    <!-- Stylesheets -->
+    <link href="/plugins/Geolocation/views/shared/javascripts/leaflet/leaflet.css?v=3.1" media="" rel="stylesheet" type="text/css" >
+    <link href="/plugins/Geolocation/views/shared/css/geolocation-marker.css?v=3.1" media="" rel="stylesheet" type="text/css" >
+    <link href="/plugins/Geolocation/views/shared/javascripts/leaflet-markercluster/MarkerCluster.css?v=3.1" media="" rel="stylesheet" type="text/css" >
+    <link href="/plugins/Geolocation/views/shared/javascripts/leaflet-markercluster/MarkerCluster.Default.css?v=3.1" media="" rel="stylesheet" type="text/css" >
+    <link href="/plugins/GuestUser/views/public/css/guest-user.css?v=2.7.1" media="all" rel="stylesheet" type="text/css" >
+    <link href="//fonts.googleapis.com/css?family=Arvo:400" media="screen" rel="stylesheet" type="text/css" >
+    <link href="/application/views/scripts/css/admin-bar.css?v=2.7.1" media="screen" rel="stylesheet" type="text/css" >
+    <link href="/application/views/scripts/css/iconfonts.css?v=2.7.1" media="all" rel="stylesheet" type="text/css" >
+    <link href="../css/skeleton.css?v=2.7.1" media="all" rel="stylesheet" type="text/css" >
+    <link href="../css/style.css?v=2.7.1" media="all" rel="stylesheet" type="text/css" >
+    <link href="../css/rhh-styles.css" media="all" rel="stylesheet" type="text/css" > 
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
+
+    <!-- JavaScripts -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        //<!--
+        window.jQuery || document.write("<script type=\"text\/javascript\" src=\"\/application\/views\/scripts\/javascripts\/vendor\/jquery.js?v=2.7.1\" charset=\"utf-8\"><\/script>")    //-->
+    </script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        //<!--
+        window.jQuery.ui || document.write("<script type=\"text\/javascript\" src=\"\/application\/views\/scripts\/javascripts\/vendor\/jquery-ui.js?v=2.7.1\" charset=\"utf-8\"><\/script>")    //-->
+    </script>
+    <script type="text/javascript">
+        //<!--
+        jQuery.noConflict();    //-->
+    </script>
+    <script type="text/javascript" src="/plugins/Geolocation/views/shared/javascripts/leaflet/leaflet.js?v=3.1"></script>
+    <script type="text/javascript" src="/plugins/Geolocation/views/shared/javascripts/leaflet/leaflet-providers.js?v=3.1"></script>
+    <script type="text/javascript" src="/plugins/Geolocation/views/shared/javascripts/map.js?v=3.1"></script>
+    <script type="text/javascript" src="/plugins/Geolocation/views/shared/javascripts/leaflet-markercluster/leaflet.markercluster.js?v=3.1"></script>
+    <script type="text/javascript" src="/plugins/GuestUser/views/public/javascripts/guest-user.js?v=2.7.1"></script>
+    <!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="/application/views/scripts/javascripts/vendor/selectivizr.js?v=2.7.1"></script><![endif]-->
+    <script type="text/javascript" src="/application/views/scripts/javascripts/vendor/respond.js?v=2.7.1"></script>
+    <script type="text/javascript" src="/application/views/scripts/javascripts/vendor/jquery-accessibleMegaMenu.js?v=2.7.1"></script>
+    <script type="text/javascript" src="/themes/berlin/javascripts/berlin.js?v=2.7.1"></script>
+    <script type="text/javascript" src="/application/views/scripts/javascripts/globals.js?v=2.7.1"></script>
+</head>
+
+<body class="admin-bar items show">
+    <a href="#content" id="skipnav">Skip to main content</a>
+    
+    <nav id="admin-bar">
+        <ul class="navigation">
+            <li>
+                <a id="menu-guest-user-login" href="/guest-user/user/login">Login</a>
+            </li>
+            <li>
+                <a id="menu-guest-user-register" href="/guest-user/user/register">Register</a>
+            </li>
+        </ul>
+    </nav>
+
+    <header role="banner">
+        <div id='guest-user-register-info'></div>
+        <div id="site-title">
+            <a href="https://revolutionhappenedhere.org" >Revolution Happened Here</a>
+        </div>
+
+        <div id="search-container" role="search">
+            <form id="search-form" name="search-form" action="/search" method="get">
+                <input type="text" name="query" id="query" value="" title="Search">
+                <input type="hidden" name="query_type" value="keyword" id="query_type">
+                <input type="hidden" name="record_types[]" value="Item" id="record_types">
+                <input type="hidden" name="record_types[]" value="File" id="record_types">
+                <input type="hidden" name="record_types[]" value="Collection" id="record_types">
+                <button name="submit_search" id="submit_search" type="submit" value="Search">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <div id="primary-nav" role="navigation">
+        <ul class="navigation">
+            <li>
+                <a href="/contribution">Contribute an Item</a>
+            </li>
+            <li>
+                <a href="/items/browse">Browse Items</a>
+            </li>
+            <li>
+                <a href="/exhibits">Themes</a>
+            </li>
+            <li>
+                <a href="/geolocation/map/browse">Map</a>
+            </li>
+            <li>
+                <a href="/items/search">Search</a>
+            </li>
+            <li>
+                <a href="/collections/browse">Contributors</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+        <ul class="navigation">
+            <li>
+                <a href="/contribution">Contribute an Item</a>
+            </li>
+            <li>
+                <a href="/items/browse">Browse Items</a>
+            </li>
+            <li>
+                <a href="/exhibits">Themes</a>
+            </li>
+            <li>
+                <a href="/geolocation/map/browse">Map</a>
+            </li>
+            <li>
+                <a href="/items/search">Search</a>
+            </li>
+            <li>
+                <a href="/collections/browse">Contributors</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content" role="main" tabindex="-1">
+
+        <div id="primary">
+            <h1>A Loyalist Childhood: Sampler Made by Anna Stoddard, 1782</h1>
+
+                <div class="item-file image-jpeg">
+                    <a class="download-file" href="https://revolutionhappenedhere.org/files/original/72297738fc6a931da79a5189e2f67867.jpg">
+                        <img class="full" src="https://revolutionhappenedhere.org/files/fullsize/72297738fc6a931da79a5189e2f67867.jpg" alt="68.465_Anna_Stoddar_sampler.jpg" title="68.465_Anna_Stoddar_sampler.jpg">
+                    </a>
+                </div>    
+                <!-- Items metadata - echo all_element_texts removed -->
+                
+                <!-- Item FileDisplay -->
+                
+               <!--      <div id="collection" class="element">
+                    <h3>Collection</h3>
+                    <div class="element-text"><a href="/collections/show/6">Historic Northampton</a></div>
+                  </div>
+               -->
+
+            <div class="element story"><!--JJ moved this block up to go near image 
+                <h3>Story</h3>-->
+                <div class="element-text">
+                    <p>Being the child of a prominent loyalist during the American Revolution was a challenge. Growing up in Northampton, Anna Stoddard experienced childhood during a time when crown-appointed officials such as her father were “not only deposed, but denounced” by the general populace.</p>
+                    <p>Anna was 12 or 13 years old when she made this sampler dated 1782. Born on March 24, 1769 to Solomon Stoddard (1736-1827) and his first wife Martha Partridge (1739-1772), Anna was born into a family that for just over a century held various religious, political or military appointments governing Hampshire County. In 1774, her father was appointed High Sheriff of Hampshire County, the very year when this authority could no longer match the collective will of the governed.</p>
+                    <p>Solomon Stoddard’s appointment came at a time when the governor and the crown attempted to implement the Massachusetts Governance Act. This act made changes to town and county government that curtailed the rights of citizens. Among its provisions, it allowed the governor to appoint county sheriffs, without the consent of the council, to serve at his will. The citizens of Hampshire County directly challenged this act. In August 1774, grassroots activists gathered to close the court in Springfield and asked Stoddard to sign a document promising to never hold office under this act. In February 1775, citizens surrounded his house on Prospect Street and brought him to trial in Hadley. In 1776, he was jailed overnight in Northampton and later asked to sign an affidavit of “pledging to report all conspiracies or other movements inimical to the cause of liberty.”</p>
+                    <p>Solomon Stoddard apparently maintained his loyalty to the crown. And in 1782 - the same year the sampler was made - a large gambrel-roof house for the Stoddard family was built, fronting the smaller circa 1730 house that had been surrounded by citizen activists.</p>
+                    <p>Anna’s brother, Solomon Stoddard, born in 1771, would describe his childhood during the war in an 1837 recollections as follows:</p>
+                    <blockquote><em>I was born, as you all know, in 1771, and of course was a boy in troubled times. My mother died when I was twenty months old; so that figuratively speaking, I had no Mother. Here was a deprivation which you never experienced. A mother, if intelligent, judicious &amp; affectionate, is every thing among children. Without some details, you would have a very imperfect idea of the difficulties which the youth of that day, &amp; especially the sons of the Tories, had to encounter. The war of the revolution, altho’ of a national character, was, nevertheless, as respected many of its immediate evils, more like a civil war. After the Declaration of Independence, those holding offices under the old Dynasty, were not only deposed, but denounced. A new race came forward, under the name of whigs, led on generally by violent, and frequently unprincipled men. Contributions for the public service were levied by Town Committees; and if the Tories questioned at all the amount, or called for the law under which they acted, a mob was at hand to silence complaint by violent measures, as the exigency, in their opinion, might require. These outrages were experienced by my Father at different times (in common with others who had been deposed) from these mobs; sometimes to gratify party feelings, and at others to show their zeal in the cause of Liberty. These things were going forward occasionally from 1776 to 1783. For most of the time between these dates, we were without law and without Courts, and every effort was making to prejudice the community against those men who were previously in Office, and who had too much conscience to violate the Oath of Allegiance, by which they were bound. Of these, my Father was one, being High Sheriff under the King. At such a time, and under such circumstance, little attention was paid to education. Even Yale College was broken up for a considerable period-our Town Schools were nothing, and the sons of Tories, owing to the prejudices alluded to, were practically excluded from their benefit, if any benefit was derivable. Of course I had no schooling in early life, except that one summer, when eight or nine years old, I attended a girl’s school kept by Mrs. Henshaw, at the house where she now lives. This school I could hardly attend without being insulted in the street as the son of a Tory. You might suppose that I enjoyed good advantages at home, but it was not so. Without a mother, as I before observed, and my Father, otherwise occupied &amp; frequently in a state of agitation, was not favorably situated to instruct his children…. The first ten or eleven years of my life I spent at home, almost wholly excluded from the company of boys of my age, and groping my way under the circumstances I have stated.</em></blockquote>
+                </div>
+            </div>
+
+           <hr>
+
+<div class="item-info"><!--JJ added to make 2 column layout-->
+            <div class="element">
+                <h3>Topic</h3>
+                <div class="element-text"><a href="/items/browse?advanced%5B0%5D%5Belement_id%5D=49&advanced%5B0%5D%5Btype%5D=is+exactly&advanced%5B0%5D%5Bterms%5D=childhood">childhood</a></div>
+            </div>
+
+            <div class="element">
+                <h3>Description</h3>
+                <div class="element-text">Sampler, cross-stitch on linen, approximately 7.5&quot; H x 5.75&quot; W</div>
+            </div>
+
+            <div class="element">
+                <h3>Type</h3>
+                <div class="element-text"><a href="/items/browse?advanced%5B0%5D%5Belement_id%5D=51&advanced%5B0%5D%5Btype%5D=is+exactly&advanced%5B0%5D%5Bterms%5D=Artifact">Artifact</a></div>
+                <h3>Identifier</h3>
+                <div class="element-text">68.465</div>
+            </div>
+
+        <!-- The following prints a list of all tags associated with the item -->
+            <div id="item-tags" class="element">
+            <h3>Tags</h3>
+            <div class="element-text"><a href="/items/browse?tags=childhood" rel="tag">childhood</a>, <a href="/items/browse?tags=children" rel="tag">children</a>, <a href="/items/browse?tags=craft" rel="tag">craft</a>, <a href="/items/browse?tags=loyalist" rel="tag">loyalist</a>, <a href="/items/browse?tags=needlework" rel="tag">needlework</a>, <a href="/items/browse?tags=Tory" rel="tag">Tory</a></div>
+        </div>
+        
+        <!-- The following prints a citation for this item. -->
+        <div id="item-citation" class="element">
+            <h3>Citation</h3>
+            <div class="element-text">&#8220;A Loyalist Childhood: Sampler Made by Anna Stoddard, 1782,&#8221; <em>Revolution Happened Here</em>, accessed November 2, 2020, <span class="citation-url">https://revolutionhappenedhere.org/items/show/26</span>.</div>
+        </div>
+
+        <div class="element">
+            <h3>Collection</h3>
+            <div class="element-text"></div>
+        </div>
+
+        <div class="element">
+            <h3>Contributor</h3>
+            <div class="element-text"><a href="/items/browse?advanced%5B0%5D%5Belement_id%5D=37&advanced%5B0%5D%5Btype%5D=is+exactly&advanced%5B0%5D%5Bterms%5D=Historic+Northampton">Historic Northampton</a></div>
+        </div>
+
+        <div class="element">
+            <h3>Date</h3>
+            <div class="element-text">1782</div>
+        </div>
+    </div><!-- end item-info -->
+
+        <div class="related-items"><!--JJ added related-items-->
+            <h2>Related to This Item</h2>
+            <div class="item record">
+                <h3><a href="/items/show/26">A Loyalist Childhood: Sampler Made by Anna Stoddard, 1782</a></h3>
+                <a href="/items/show/26" class="image">
+                    <img src="https://revolutionhappenedhere.org/files/square_thumbnails/72297738fc6a931da79a5189e2f67867.jpg" alt="68.465_Anna_Stoddar_sampler.jpg" title="68.465_Anna_Stoddar_sampler.jpg">
+                </a>
+                <p class="item-description">Sampler, cross-stitch on linen, approximately 7.5&quot; H x 5.75&quot; W</p>
+            </div>
+            <div class="item record">
+                <h3><a href="/items/show/25">Captain Daniel Pomeroy&#039;s Payroll</a></h3>
+                <a href="/items/show/25" class="image">
+                    <img src="https://revolutionhappenedhere.org/files/square_thumbnails/f12cff3db9a9325a40e50df8909cf0a9.jpg" alt="A_R_W_17_9_side1.jpg" title="A_R_W_17_9_side1.jpg"></a>
+                <p class="item-description">document, approximately 14 3/4&quot; (37.6 cm) x 9 5/8&quot; (24.6 cm)</p>
+            </div>
+        </div><!--end related-items-->
+
+
+        <hr>
+
+        <!-- map -->
+        <div id='geolocation'>
+            <h2>Geolocation</h2>
+            <div id="item-map-26" class="map geolocation-map" style="width: ; height: 300px"></div>
+            <script type='text/javascript'>var itemMap26;OmekaMapSingle = new OmekaMapSingle("item-map-26", {"latitude":42.32334399999999874353306950069963932037353515625,"longitude":-72.6718895000000060235834098421037197113037109375,"zoomLevel":5,"show":true}, {"basemap":"CartoDB.Voyager","cluster":true}); </script>
+        </div>
+        
+        <ul class="item-pagination navigation">
+            <li id="previous-item" class="previous"><a href="/items/show/25">&larr; Previous Item</a></li>
+            <li id="next-item" class="next"></li>
+        </ul>
+
+    </div> <!-- End of Primary. -->
+
+     </div><!-- end content -->
+
+    <footer role="contentinfo">
+
+        <div id="footer-content" class="center-div">
+            <div id="custom-footer-text">
+                <p>This project generously funded by <a href="https://masshumanities.org" target="_blank" rel="noreferrer noopener">MassHumanities</a> and <a href="https://revolution250.org" target="_blank" rel="noreferrer noopener">Revolution250</a>.</p>
+            </div>
+                    
+            <nav>
+                <ul class="navigation">
+                    <li>
+                        <a href="/contribution">Contribute an Item</a>
+                    </li>
+                    <li>
+                        <a href="/items/browse">Browse Items</a>
+                    </li>
+                    <li>
+                        <a href="/exhibits">Themes</a>
+                    </li>
+                    <li>
+                        <a href="/geolocation/map/browse">Map</a>
+                    </li>
+                    <li>
+                        <a href="/items/search">Search</a>
+                    </li>
+                    <li>
+                        <a href="/collections/browse">Contributors</a>
+                    </li>
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                </ul>
+            </nav>     
+            
+            <p>Proudly powered by <a href="http://omeka.org">Omeka</a>.</p>
+        </div><!-- end footer-content -->
+	
+    	<!-- Erin: added footer logos -->
+    	<div id="footer-logos">
+    		<a href="https://revolution250.org/"><img src="https://revolutionhappenedhere.org/themes/berlin/images/rev250.jpg"/></a>		<a href="https://masshumanities.org/"><img src="https://revolutionhappenedhere.org/themes/berlin/images/masshumanities.png"/></a>		<a href="https://www.neh.gov/"><img src="https://revolutionhappenedhere.org/themes/berlin/images/neh.jpeg"/></a>
+        </div>
+
+    </footer>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        Omeka.showAdvancedForm();
+        Omeka.skipNav();
+        Omeka.megaMenu();
+        Berlin.dropDown();
+    });
+</script>
+
+</body>
+
+</html>

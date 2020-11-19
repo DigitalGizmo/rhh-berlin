@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="" lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
+    <meta name="description" content="A collaborative website that presents historical resources about the American Revolution contributed by museums and historical organizations throughout the Pioneer Valley of western Massachusetts. Developed by the Pioneer Valley History Network with funding from MassHumanitites." />
+    
+    <title>Revolution Happened Here</title>
+
+    <link rel="alternate" type="application/rss+xml" title="Omeka RSS Feed" href="/items/browse?output=rss2" />
+    <link rel="alternate" type="application/atom+xml" title="Omeka Atom Feed" href="/items/browse?output=atom" />
+    
+    <!-- Stylesheets -->
+    <link href="/plugins/Geolocation/views/shared/javascripts/leaflet/leaflet.css?v=3.1" media="" rel="stylesheet" type="text/css" >
+    <link href="/plugins/Geolocation/views/shared/css/geolocation-marker.css?v=3.1" media="" rel="stylesheet" type="text/css" >
+    <link href="/plugins/Geolocation/views/shared/javascripts/leaflet-markercluster/MarkerCluster.css?v=3.1" media="" rel="stylesheet" type="text/css" >
+    <link href="/plugins/Geolocation/views/shared/javascripts/leaflet-markercluster/MarkerCluster.Default.css?v=3.1" media="" rel="stylesheet" type="text/css" >
+    <link href="/plugins/GuestUser/views/public/css/guest-user.css?v=2.7.1" media="all" rel="stylesheet" type="text/css" >
+    <link href="//fonts.googleapis.com/css?family=Arvo:400" media="screen" rel="stylesheet" type="text/css" >
+    <link href="/application/views/scripts/css/admin-bar.css?v=2.7.1" media="screen" rel="stylesheet" type="text/css" >
+    <link href="/application/views/scripts/css/iconfonts.css?v=2.7.1" media="all" rel="stylesheet" type="text/css" >
+    <link href="css/skeleton.css?v=2.7.1" media="all" rel="stylesheet" type="text/css" >
+    <link href="css/style.css?v=2.7.1" media="all" rel="stylesheet" type="text/css" >    
+    <link href="css/rhh-styles.css" media="all" rel="stylesheet" type="text/css" >   
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
+
+    <!-- JavaScripts -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+    //<!--
+    window.jQuery || document.write("<script type=\"text\/javascript\" src=\"\/application\/views\/scripts\/javascripts\/vendor\/jquery.js?v=2.7.1\" charset=\"utf-8\"><\/script>")    //-->
+    </script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        //<!--
+        window.jQuery.ui || document.write("<script type=\"text\/javascript\" src=\"\/application\/views\/scripts\/javascripts\/vendor\/jquery-ui.js?v=2.7.1\" charset=\"utf-8\"><\/script>")    //-->
+    </script>
+    <script type="text/javascript">
+        //<!--
+        jQuery.noConflict();    //-->
+    </script>
+    <script type="text/javascript" src="/plugins/Geolocation/views/shared/javascripts/leaflet/leaflet.js?v=3.1"></script>
+    <script type="text/javascript" src="/plugins/Geolocation/views/shared/javascripts/leaflet/leaflet-providers.js?v=3.1"></script>
+    <script type="text/javascript" src="/plugins/Geolocation/views/shared/javascripts/map.js?v=3.1"></script>
+    <script type="text/javascript" src="/plugins/Geolocation/views/shared/javascripts/leaflet-markercluster/leaflet.markercluster.js?v=3.1"></script>
+    <script type="text/javascript" src="/plugins/GuestUser/views/public/javascripts/guest-user.js?v=2.7.1"></script>
+    <!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="/application/views/scripts/javascripts/vendor/selectivizr.js?v=2.7.1"></script><![endif]-->
+    <script type="text/javascript" src="/application/views/scripts/javascripts/vendor/respond.js?v=2.7.1"></script>
+    <script type="text/javascript" src="/application/views/scripts/javascripts/vendor/jquery-accessibleMegaMenu.js?v=2.7.1"></script>
+    <script type="text/javascript" src="/themes/berlin/javascripts/berlin.js?v=2.7.1"></script>
+    <script type="text/javascript" src="/application/views/scripts/javascripts/globals.js?v=2.7.1"></script>
+</head>
+
+<body id="home" class="admin-bar two-col">
+    <a href="#content" id="skipnav">Skip to main content</a>
+    
+    <nav id="admin-bar">
+        <ul class="navigation">
+            <li>
+                <a id="menu-guest-user-login" href="/guest-user/user/login">Login</a>
+            </li>
+            <li>
+                <a id="menu-guest-user-register" href="/guest-user/user/register">Register</a>
+            </li>
+        </ul>
+    </nav>
+
+    <header role="banner">
+        <div id="header-content">
+            <div id='guest-user-register-info'></div>
+            <div id="site-title">
+                <a href="https://revolutionhappenedhere.org" >Revolution Happened Here</a>
+                <h2>What happened in your town?</h2>
+            </div>
+
+            <div id="search-container" role="search">
+                <form id="search-form" name="search-form" action="/search" method="get">
+                    <input type="text" name="query" id="query" value="" title="Search">
+                    <input type="hidden" name="query_type" value="keyword" id="query_type">
+                    <input type="hidden" name="record_types[]" value="Item" id="record_types"> 
+                    <input type="hidden" name="record_types[]" value="File" id="record_types">
+                    <input type="hidden" name="record_types[]" value="Collection" id="record_types">
+                    <button name="submit_search" id="submit_search" type="submit" value="Search">Search</button>
+                </form>
+            </div>
+        </div><!--! end #header-content -->
+    </header>
+
+    <div id="primary-nav" role="navigation">
+        <ul class="navigation">
+            <li>
+                <a href="/contribution">Contribute an Item</a>
+            </li>
+            <li>
+                <a href="/items/browse">Browse Items</a>
+            </li>
+            <li>
+                <a href="/exhibits">Themes</a>
+            </li>
+            <li>
+                <a href="/geolocation/map/browse">Map</a>
+            </li>
+            <li>
+                <a href="/items/search">Search</a>
+            </li>
+            <li>
+                <a href="/collections/browse">Contributors</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+        <ul class="navigation">
+            <li>
+                <a href="/contribution">Contribute an Item</a>
+            </li>
+            <li>
+                <a href="/items/browse">Browse Items</a>
+            </li>
+            <li>
+                <a href="/exhibits">Themes</a>
+            </li>
+            <li>
+                <a href="/geolocation/map/browse">Map</a>
+            </li>
+            <li>
+                <a href="/items/search">Search</a>
+            </li>
+            <li>
+                <a href="/collections/browse">Contributors</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content" role="main" tabindex="-1">
+
+        <div id="primary">
+            <!--<h2 class="tagline">What Happened in Your Town?</h2>JJ changed markup -->
+            <p>Welcome to <em>Revolution Happened Here</em>, a collaborative website that presents historical resources about the American Revolution contributed by museums and historical organizations throughout the Pioneer Valley of western Massachusetts. Developed by the <a href="https://pioneervalleyhistorynetwork.org" target="_blank" rel="noreferrer noopener">Pioneer Valley History Network</a> with funding from <a href="https://masshumanities.org" target="_blank" rel="noreferrer noopener">MassHumanitites</a>.</p>
+
+            <!-- Featured Item JJ-removed featured Item 
+            <div id="featured-item" class="featured">
+                <h2>Featured Item</h2>
+                <p>No featured items are available.</p>
+            </div> end featured-item-->
+            
+            <!-- Featured Collection JJ relabeled-->
+            <div id="featured-collection" class="featured">
+                <h2>Recent Contributor</h2>
+                <div class="collection record">
+                    <h3>
+                        <a href="/collections/show/3">Pocumtuck Valley Memorial Association and the Memorial Hall Museum</a>
+                    </h3>
+                    <a href="/collections/show/3" class="image">
+                        <img src="https://revolutionhappenedhere.org/files/square_thumbnails/37c5dcc9af8c51545cfebee3075542b8.jpg" alt="L99.171.jpg" title="L99.171.jpg">
+                    </a>
+                    <p class="collection-description">Pocumtuck Valley Memorial Association is a regional organization that maintains the Memorial Hall Museum, a research Library, Deerfield Teachers’…</p>
+                </div>
+            </div><!-- end featured collection -->
+
+            <!-- Featured Exhibit // Erin: relabeled exhibit as theme JJ relabeled again-->
+            <div id="featured-exhibit">
+                <h2>Themes &amp; Topics</h2>
+                <p>You have no featured themes.</p>
+            </div><!-- end featured Theme -->
+        </div><!-- end primary -->
+
+        <div id="secondary">
+            <div id="recent-items">
+                <h2>Recently Added Items</h2>
+                <div class="item record">
+                    <h3><a href="/items/show/26">A Loyalist Childhood: Sampler Made by Anna Stoddard, 1782</a></h3>
+                    <a href="/items/show/26" class="image">
+                        <img src="https://revolutionhappenedhere.org/files/square_thumbnails/72297738fc6a931da79a5189e2f67867.jpg" alt="68.465_Anna_Stoddar_sampler.jpg" title="68.465_Anna_Stoddar_sampler.jpg">
+                    </a>
+                    <p class="item-description">Sampler, cross-stitch on linen, approximately 7.5&quot; H x 5.75&quot; W</p>
+                </div>
+                <div class="item record">
+                    <h3><a href="/items/show/25">Captain Daniel Pomeroy&#039;s Payroll</a></h3>
+                    <a href="/items/show/25" class="image">
+                        <img src="https://revolutionhappenedhere.org/files/square_thumbnails/f12cff3db9a9325a40e50df8909cf0a9.jpg" alt="A_R_W_17_9_side1.jpg" title="A_R_W_17_9_side1.jpg"></a>
+                    <p class="item-description">document, approximately 14 3/4&quot; (37.6 cm) x 9 5/8&quot; (24.6 cm)</p>
+                </div>
+                <div class="item record">
+                    <h3><a href="/items/show/24">Hessian Rock</a></h3>
+                    <a href="/items/show/24" class="image">
+                        <img src="https://revolutionhappenedhere.org/files/square_thumbnails/c7a05b992106bb4257382f76a2388c6e.jpg" alt="IMG_7584.JPG" title="IMG_7584.JPG">
+                    </a>
+                    <p class="item-description">Boulder marker</p>
+                </div>
+                <div class="item record">
+                    <h3><a href="/items/show/23">Richard Falley Musket</a></h3>
+                    <a href="/items/show/23" class="image">
+                        <img src="https://revolutionhappenedhere.org/files/square_thumbnails/43c80269278cfee58edf720d5c69b47a.jpg" alt="Richard Falley Musket.jpg" title="Richard Falley Musket.jpg">
+                    </a>
+                    <p class="item-description">Iron, steel and wood musket</p>
+                </div>
+                <div class="item record">
+                    <h3><a href="/items/show/22">Hessian Grave</a></h3>
+                    <a href="/items/show/22" class="image">
+                        <img src="https://revolutionhappenedhere.org/files/square_thumbnails/f32bfe12cb20952aaf67ec5f546fa843.jpg" alt="isense-john-1780-westsprunion.jpg" title="isense-john-1780-westsprunion.jpg">
+                    </a>
+                    <p class="item-description">Carved red sandstone monument/gravestone</p>
+                </div>
+                <div class="item record">
+                    <h3><a href="/items/show/21">Hessian Encampment</a></h3>
+                    <a href="/items/show/21" class="image">
+                        <img src="https://revolutionhappenedhere.org/files/square_thumbnails/5dee9e79e6fcd91976ea54264faa43a8.jpg" alt="IMG_7553.JPG" title="IMG_7553.JPG">
+                    </a>
+                    <p class="item-description">Bronze plaque set in boulder</p>
+                </div>
+                <p class="view-items-link"><a href="/items">View All Items</a></p>
+            </div><!--end recent-items -->
+        </div><!-- end secondary -->
+    </div><!-- end content -->
+
+<footer role="contentinfo">
+
+    <div id="footer-content" class="center-div">
+        <div id="custom-footer-text">
+        <p>This project generously funded by <a href="https://masshumanities.org" target="_blank" rel="noreferrer noopener">MassHumanities</a> and <a href="https://revolution250.org" target="_blank" rel="noreferrer noopener">Revolution250</a>.</p>
+    </div>
+                                
+    <nav>
+        <ul class="navigation">
+            <li>
+                <a href="/contribution">Contribute an Item</a>
+            </li>
+            <li>
+                <a href="/items/browse">Browse Items</a>
+            </li>
+            <li>
+                <a href="/exhibits">Themes</a>
+            </li>
+            <li>
+                <a href="/geolocation/map/browse">Map</a>
+            </li>
+            <li>
+                <a href="/items/search">Search</a>
+            </li>
+            <li>
+                <a href="/collections/browse">Contributors</a>
+            </li>
+            <li>
+                <a href="/about">About</a>
+            </li>
+        </ul>
+    </nav>     
+        
+    <p>Proudly powered by <a href="http://omeka.org">Omeka</a>.</p>
+    </div><!-- end footer-content -->
+	
+	<!-- Erin: added footer logos -->
+	<div id="footer-logos">
+		<a href="https://revolution250.org/">
+            <img src="https://revolutionhappenedhere.org/themes/berlin/images/rev250.jpg"/>
+        </a>
+        <a href="https://masshumanities.org/">
+            <img src="https://revolutionhappenedhere.org/themes/berlin/images/masshumanities.png"/>
+        </a>
+        <a href="https://www.neh.gov/">
+            <img src="https://revolutionhappenedhere.org/themes/berlin/images/neh.jpeg"/>
+        </a>
+    </div>
+
+</footer>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        Omeka.showAdvancedForm();
+        Omeka.skipNav();
+        Omeka.megaMenu();
+        Berlin.dropDown();
+    });
+</script>
+
+</body>
+</html>
