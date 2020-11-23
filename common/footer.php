@@ -25,8 +25,8 @@
 	<!-- Erin: added footer logos -->
 	<div id="footer-logos">
 		<?php echo '<a href="https://revolution250.org/"><img src="'.WEB_ROOT.img("rev250.jpg").'"/></a>';?>
-		<?php echo '<a href="https://masshumanities.org/"><img src="'.WEB_ROOT.img("masshumanities.png").'"/></a>';?>
-		<?php echo '<a href="https://www.neh.gov/"><img src="'.WEB_ROOT.img("neh.jpeg").'"/></a>';?>
+		<?php echo '<a href="https://masshumanities.org/"><img src="'.WEB_ROOT.img("masshumanities.jpg").'"/></a>';?>
+		<?php echo '<a href="https://www.neh.gov/"><img src="'.WEB_ROOT.img("neh.png").'"/></a>';?>
 	</div>   
 
      <?php fire_plugin_hook('public_footer', array('view'=>$this)); ?>
