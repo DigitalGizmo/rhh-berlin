@@ -96,6 +96,33 @@
         </div><!-- end about-item -->
 
         <!-- JJ added related-items div, recent-items id included for styles -->
+<div id="item-relations-display-item-relations">
+    <h2><?php echo __('Item Relations'); ?></h2>
+    <?php if (!$subjectRelations && !$objectRelations): ?>
+    <p><?php echo __('This item has no relations.'); ?></p>
+    <?php else: ?>
+    <table>
+        <?php foreach ($subjectRelations as $subjectRelation): ?>
+        <tr>
+            <td><?php echo __('This Item'); ?></td>
+            <td><span title="<?php echo html_escape($subjectRelation['relation_description']); ?>"><?php echo $subjectRelation['relation_text']; ?></span></td>
+            <td>Item: <a href="<?php echo url('items/show/' . $subjectRelation['object_item_id']); ?>"><?php echo $subjectRelation['object_item_title']; ?></a></td>
+        </tr>
+        <?php endforeach; ?>
+        <?php foreach ($objectRelations as $objectRelation): ?>
+        <tr>
+            <td>Item: <a href="<?php echo url('items/show/' . $objectRelation['subject_item_id']); ?>"><?php echo $objectRelation['subject_item_title']; ?></a></td>
+            <td><span title="<?php echo html_escape($objectRelation['relation_description']); ?>"><?php echo $objectRelation['relation_text']; ?></span></td>
+            <td><?php echo __('This Item'); ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
+</div>
+
+
+
+<!-- 
         <div class="related-items" id="recent-items">
             <h2>Related Items</h2>
             <div class="item record">
@@ -110,9 +137,10 @@
                 <a href="/items/show/25" class="image">
                     <img src="https://revolutionhappenedhere.org/files/square_thumbnails/f12cff3db9a9325a40e50df8909cf0a9.jpg" alt="A_R_W_17_9_side1.jpg" title="A_R_W_17_9_side1.jpg"></a>
                 <p class="item-description">document, approximately 14 3/4&quot; (37.6 cm) x 9 5/8&quot; (24.6 cm)</p>
-            </div>
-        </div><!--end related-items-->
-    </div><!--end item-info-->
+            </div> 
+        </div>end related-items-->
+
+    </div><!--end item-info-->-->
 
     <hr>
 

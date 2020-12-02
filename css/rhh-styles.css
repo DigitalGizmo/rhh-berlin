@@ -9,8 +9,16 @@ header {
   padding: 36px 3%;
 }
 
+@media only screen and (max-width: 767px) {
+  header {
+    /*width: 300px;*/
+    width: 100%;
+  } 
+}
+
 h1, h2, h3 {
   font-family: 'Libre Baskerville', serif;
+  color: #3A4E84;
 }
 
 h1 {
@@ -19,10 +27,11 @@ h1 {
   color: #A5270E;
 }
 
-h2 {
+#home #content h2 {
   color: #A5270E;
   font-variant: small-caps;
   letter-spacing: 0.075em;
+  text-transform: none;
 }
 
 h3 {
@@ -32,6 +41,20 @@ h3 {
 
 #content {
   /*padding: 36px 3%;this padding looks nice but throws off the basic 2 column layout*/
+}
+
+@media only screen and (max-width: 767px) {
+  #content {
+    /*width: 300px;*/
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .items #content {
+    /*width: 300px;*/
+    width: 100%;
+  }
 }
 
 #header-content {
@@ -59,7 +82,8 @@ h3 {
 
 @media only screen and (max-width: 767px) {
 	#header-content {
-	  width: 300px; 
+	  /*width: 300px;*/
+    width: 100%;
 	}
 }
 
@@ -76,6 +100,12 @@ h3 {
   letter-spacing: 0;
   text-transform: none;
   width: 90%;
+}
+
+@media screen and (max-width: 768px) {
+  #site-title {
+    line-height: 42px;
+  }
 }
 
 #site-title a {
@@ -113,17 +143,35 @@ h3 {
   color: #fff;
 }
 
-.navigation {
-	/*padding-left: 16px;*/
+@media screen and (max-width: 768px) {
+  #mobile-nav > a:first-child {
+    font-family: 'Libre Baskerville';
+    font-variant: small-caps;
+    letter-spacing: 0.075em;
+    background: #BFB399;
+  }
 }
 
-#home #content h2, h2.browse-menu, .exhibit h2, .collection h2 {/* Browse Menu Pages (items, themes, contributors) */
+@media screen and (max-width: 768px) {
+  #mobile-nav ul {
+    background: #BFB399;
+    border-bottom: 1px solid #f0e9da;
+  }
+  #mobile-nav li {
+    background: #BFB399;
+  }
+}
+
+@media only screen and (max-width: 768px) and (max-width: 767px) {
+  #mobile-nav {
+    /*width: 300px;*/
+    width: 100%;
+  }
+}
+
+h2.browse-menu, .exhibit h2, .collection h2 {/* Browse Menu Pages (items, themes, contributors) */
   font-variant: none;
   letter-spacing: 0; 
-}
-
-#secondary {
-
 }
 
 /* -- Links -- */
@@ -189,10 +237,14 @@ footer {
   footer {
     width: 100%; }
 }
+
 @media only screen and (max-width: 767px) {
   footer {
-    width: 100%; }
+    width: 100%;
+    padding: 0 1em;
+  }
 }
+
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   footer {
     width: 100%; }
@@ -207,6 +259,12 @@ footer .navigation a {
   padding: 1em;
 }
 
+@media screen and (max-width: 768px) {
+  footer .navigation a {
+    padding: 0;
+  }
+}
+
 #footer-content, #footer-logos {
 	width: 960px;
 	margin: 0 auto;
@@ -216,10 +274,20 @@ footer .navigation a {
   #footer-content, #footer-logos {
     width: 768px; }
 }
+
 @media only screen and (max-width: 767px) {
   #footer-content, #footer-logos {
-    width: 300px; }
+    /*width: 300px;*/
+    width: 100%;
+  }
 }
+
+@media only screen and (max-width: 767px) {
+  #footer-logos a img {
+  width: auto;
+  height: 5em; }
+}
+
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   #footer-content, #footer-logos {
     width: 420px; }
@@ -234,6 +302,13 @@ div.about-item {
 	float: left;
 	width: 48%;
 	margin-right: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  div.about-item  {
+  float: none;
+  width: 100%;
+  margin-right: 0; }
 }
 
 div.related-items {
