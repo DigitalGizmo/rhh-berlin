@@ -95,39 +95,34 @@
             </div>
         </div><!-- end about-item -->
 
-        <!-- adding fire plugin here per Erin -->
-        <?php if( plugin_is_active('ItemRelations') ){ 
-            echo get_specific_plugin_hook_output('ItemRelations', 'public_items_show', array('view' => $this, 'item' => $item));
-        }  ?>
-
         <!-- JJ added related-items div, recent-items id included for styles -->
-<!--
-        <div id="item-relations-display-item-relations">
-            <h2><?php echo __('Item Relations'); ?></h2>
-            <?php if (1 == 2): ?>
-            <p><?php echo __('This item has no relations.'); ?></p>
-            <?php else: ?>
-            <table>
-                <?php foreach ($subjectRelations as $subjectRelation): ?>
-                <tr>
-                    <td><?php echo __('This Item'); ?></td>
-                    <td><span title="<?php echo html_escape($subjectRelation['relation_description']); ?>"><?php echo $subjectRelation['relation_text']; ?></span></td>
-                    <td>Item: <a href="<?php echo url('items/show/' . $subjectRelation['object_item_id']); ?>"><?php echo $subjectRelation['object_item_title']; ?></a></td>
-                </tr>
-                <?php endforeach; ?>
-                <?php foreach ($objectRelations as $objectRelation): ?>
-                <tr>
-                    <td>Item: <a href="<?php echo url('items/show/' . $objectRelation['subject_item_id']); ?>"><?php echo $objectRelation['subject_item_title']; ?></a></td>
-                    <td><span title="<?php echo html_escape($objectRelation['relation_description']); ?>"><?php echo $objectRelation['relation_text']; ?></span></td>
-                    <td><?php echo __('This Item'); ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
-            <?php endif; ?>
-        </div>
--->
+<div id="item-relations-display-item-relations">
+    <h2><?php echo __('Item Relations'); ?></h2>
+    <?php if (!$subjectRelations && !$objectRelations): ?>
+    <p><?php echo __('This item has no relations.'); ?></p>
+    <?php else: ?>
+    <table>
+        <?php foreach ($subjectRelations as $subjectRelation): ?>
+        <tr>
+            <td><?php echo __('This Item'); ?></td>
+            <td><span title="<?php echo html_escape($subjectRelation['relation_description']); ?>"><?php echo $subjectRelation['relation_text']; ?></span></td>
+            <td>Item: <a href="<?php echo url('items/show/' . $subjectRelation['object_item_id']); ?>"><?php echo $subjectRelation['object_item_title']; ?></a></td>
+        </tr>
+        <?php endforeach; ?>
+        <?php foreach ($objectRelations as $objectRelation): ?>
+        <tr>
+            <td>Item: <a href="<?php echo url('items/show/' . $objectRelation['subject_item_id']); ?>"><?php echo $objectRelation['subject_item_title']; ?></a></td>
+            <td><span title="<?php echo html_escape($objectRelation['relation_description']); ?>"><?php echo $objectRelation['relation_text']; ?></span></td>
+            <td><?php echo __('This Item'); ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
+</div>
 
-        <!-- 
+
+
+<!-- 
         <div class="related-items" id="recent-items">
             <h2>Related Items</h2>
             <div class="item record">
@@ -144,12 +139,9 @@
                 <p class="item-description">document, approximately 14 3/4&quot; (37.6 cm) x 9 5/8&quot; (24.6 cm)</p>
             </div> 
         </div>end related-items-->
-    </div><!--end item-info-->
 
-    <hr>
-    	<?php if( plugin_is_active('Geolocation') ){ 
-		echo get_specific_plugin_hook_output('Geolocation', 'public_items_show', array('view' => $this, 'item' => $item)); 
-	}  ?>
+    </div><!--end item-info-->-->
+
     <hr>
 
     <!-- if item is a manuscript, show transcription -->
@@ -160,6 +152,7 @@
       </div>
     <?php endif; ?>
     <!-- map -->
+    <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
     <ul class="item-pagination navigation">
         <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>

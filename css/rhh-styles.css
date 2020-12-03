@@ -316,6 +316,11 @@ div.related-items {
 	width: 48%;
 }
 
+/* for related items */
+div#item-relations-display-item-relations table {
+  width: 50%;
+}
+
 div.item-story, div.item-info {
   overflow: auto;
 }
@@ -357,6 +362,26 @@ div.story {
 .transcription {
   background-color: #EFEBE4;
   padding: 10px;
+}
+
+/* -- Browse Items --*/
+@media only screen and (max-width: 767px) {
+  .browse .item-meta {
+    width: 100%;
+  }
+}
+
+/* -- Themes/Exhibit Pages --*/
+@media only screen and (max-width: 767px) {
+  .browse .collection h2, .browse .exhibit h2 {
+    float: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .exhibits #content > h1:first-of-type, #exhibit-blocks, #exhibit-page-navigation, .exhibits.summary #primary {
+      width: 100%;
+  }
 }
 
 /* colors
