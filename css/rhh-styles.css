@@ -321,6 +321,12 @@ div#item-relations-display-item-relations table {
   width: 50%;
 }
 
+img.related-item-image {
+  height: 126px;
+  padding: 2px;
+  border: 1px solid #f0e9da;
+}
+
 div.item-story, div.item-info {
   overflow: auto;
 }

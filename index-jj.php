@@ -4,16 +4,16 @@
     <p><?php echo $homepageText; ?></p>
     <?php endif; ?>
     <?php if (get_theme_option('Display Featured Item') == 1): ?>
-    <!-- Featured Item /-->
+    <!-- Featured Item -->
     <div id="featured-item" class="featured">
         <h2><?php echo __('Featured Item'); ?></h2>
         <?php echo random_featured_items(1); ?>
-    </div><!-- end featured-item-->
+    </div><!--end featured-item-->
     <?php endif; ?>
     <?php if (get_theme_option('Display Featured Collection')): ?>
     <!-- Featured Collection -->
     <div id="featured-collection" class="featured">
-        <h2><?php echo __('Recent Contributor'); ?></h2>
+        <h2><?php echo __('Featured Contributor'); ?></h2>
         <?php echo random_featured_collection(); ?>
     </div><!-- end featured collection -->
     <?php endif; ?>

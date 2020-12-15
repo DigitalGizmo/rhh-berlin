@@ -1,4 +1,10 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'items show')); ?>
+<?php
+  // Probably a more direct way to do this, but..
+  // Needed to retrieve current item after item is altered by Item Relation
+  $current_item_id = metadata('item', 'id');
+  $saved_current_record = get_record_by_id('item', $current_item_id);
+?>
 <div id="primary">
     
     <div class="item-story">
@@ -19,13 +25,6 @@
                <?php echo files_for_item(); ?>
           </div>
         <?php endif; ?>
-
-       <!--<?php if(metadata('item','Collection Name')): ?>
-          <div id="collection" class="element">
-            <h3><?php echo __('Collection'); ?></h3>
-            <div class="element-text"><?php echo link_to_collection_for_item(); ?></div>
-          </div>
-       <?php endif; ?>-->
 
          <div class="element story">
             <!-- <h3>Story</h3> -->
@@ -95,63 +94,21 @@
             </div>
         </div><!-- end about-item -->
 
-        <!-- adding fire plugin here per Erin -->
-        <?php if( plugin_is_active('ItemRelations') ){ 
-            echo get_specific_plugin_hook_output('ItemRelations', 'public_items_show', array('view' => $this, 'item' => $item));
-        }  ?>
-
-        <!-- JJ added related-items div, recent-items id included for styles -->
-<!--
         <div id="item-relations-display-item-relations">
-            <h2><?php echo __('Item Relations'); ?></h2>
-            <?php if (1 == 2): ?>
-            <p><?php echo __('This item has no relations.'); ?></p>
-            <?php else: ?>
-            <table>
-                <?php foreach ($subjectRelations as $subjectRelation): ?>
-                <tr>
-                    <td><?php echo __('This Item'); ?></td>
-                    <td><span title="<?php echo html_escape($subjectRelation['relation_description']); ?>"><?php echo $subjectRelation['relation_text']; ?></span></td>
-                    <td>Item: <a href="<?php echo url('items/show/' . $subjectRelation['object_item_id']); ?>"><?php echo $subjectRelation['object_item_title']; ?></a></td>
-                </tr>
-                <?php endforeach; ?>
-                <?php foreach ($objectRelations as $objectRelation): ?>
-                <tr>
-                    <td>Item: <a href="<?php echo url('items/show/' . $objectRelation['subject_item_id']); ?>"><?php echo $objectRelation['subject_item_title']; ?></a></td>
-                    <td><span title="<?php echo html_escape($objectRelation['relation_description']); ?>"><?php echo $objectRelation['relation_text']; ?></span></td>
-                    <td><?php echo __('This Item'); ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
-            <?php endif; ?>
+            <!-- adding fire plugin here per Erin -->
+            <?php if( plugin_is_active('ItemRelations') ){ 
+                echo get_specific_plugin_hook_output('ItemRelations', 'public_items_show', array('view' => $this, 'item' => $item));
+            }  ?>
         </div>
--->
 
-        <!-- 
-        <div class="related-items" id="recent-items">
-            <h2>Related Items</h2>
-            <div class="item record">
-                <h3><a href="/items/show/26">A Loyalist Childhood: Sampler Made by Anna Stoddard, 1782</a></h3>
-                <a href="/items/show/26" class="image">
-                    <img src="https://revolutionhappenedhere.org/files/square_thumbnails/72297738fc6a931da79a5189e2f67867.jpg" alt="68.465_Anna_Stoddar_sampler.jpg" title="68.465_Anna_Stoddar_sampler.jpg">
-                </a>
-                <p class="item-description">Sampler, cross-stitch on linen, approximately 7.5&quot; H x 5.75&quot; W</p>
-            </div>
-            <div class="item record">
-                <h3><a href="/items/show/25">Captain Daniel Pomeroy&#039;s Payroll</a></h3>
-                <a href="/items/show/25" class="image">
-                    <img src="https://revolutionhappenedhere.org/files/square_thumbnails/f12cff3db9a9325a40e50df8909cf0a9.jpg" alt="A_R_W_17_9_side1.jpg" title="A_R_W_17_9_side1.jpg"></a>
-                <p class="item-description">document, approximately 14 3/4&quot; (37.6 cm) x 9 5/8&quot; (24.6 cm)</p>
-            </div> 
-        </div>end related-items-->
     </div><!--end item-info-->
 
     <hr>
-    	<?php if( plugin_is_active('Geolocation') ){ 
-		echo get_specific_plugin_hook_output('Geolocation', 'public_items_show', array('view' => $this, 'item' => $item)); 
-	}  ?>
-    <hr>
 
+    <?php
+      // We have to reset the record because it was altered by Item Relations
+      set_current_record('item', $saved_current_record);
+    ?>
     <!-- if item is a manuscript, show transcription -->
     <?php if(metadata('item', array('Item Type Metadata','Text'))): ?>
       <div class="element">
@@ -159,13 +116,20 @@
         <div class="element-text transcription"><?php echo metadata('item', array('Item Type Metadata','Text')) ?></div>
       </div>
     <?php endif; ?>
-    <!-- map -->
 
+    <hr>
+
+    <!-- map -->
+    	<?php if( plugin_is_active('Geolocation') ){ 
+		echo get_specific_plugin_hook_output('Geolocation', 'public_items_show', array('view' => $this, 'item' => $item)); 
+	}  ?>
+
+    <!-- item navigation -->
     <ul class="item-pagination navigation">
         <li id="previous-item" class="previous"><?php echo link_to_previous_item_show(); ?></li>
         <li id="next-item" class="next"><?php echo link_to_next_item_show(); ?></li>
     </ul>
 
-</div> <!-- End of Primary. -->
+</div> <!-- End of Primary -->
 
  <?php echo foot(); ?>
