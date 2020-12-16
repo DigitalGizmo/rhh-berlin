@@ -20,7 +20,7 @@
     <?php fire_plugin_hook('public_head',array('view'=>$this)); ?>
     <!-- Stylesheets -->
     <?php
-    queue_css_file(array('iconfonts', 'skeleton','style', 'photoswipe', 'default-skin/default-skin','rhh-styles'));
+    queue_css_file(array('iconfonts', 'skeleton','style','rhh-styles'));
 
     echo head_css();
     ?>
@@ -34,40 +34,13 @@
     <?php queue_js_file('berlin'); ?>
     <?php queue_js_file('globals'); ?>
     <?php echo head_js(); ?>
-
-    <!-- Load js the way Erin did in curatescape to get real-time photoswipe -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        /*!
-        loadJS: load a JS file asynchronously. 
-        [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). 
-        Licensed MIT 
-        */
-        (function(w){var loadJS=function(src,cb,ordered){"use strict";var tmp;var ref=w.document.getElementsByTagName("script")[0];var script=w.document.createElement("script");if(typeof(cb)==='boolean'){tmp=ordered;ordered=cb;cb=tmp;}
-        script.src=src;script.async=!ordered;ref.parentNode.insertBefore(script,ref);if(cb&&typeof(cb)==="function"){script.onload=cb;}
-        return script;};if(typeof module!=="undefined"){module.exports=loadJS;}
-        else{w.loadJS=loadJS;}}(typeof global!=="undefined"?global:this));
-        
-    </script>
-
-    <script>
-        // Async JS 
-        loadJS('<?php echo src('photoswipe.min.js','javascripts');?>'); 
-        loadJS('<?php echo src('photoswipe-ui-default.min.js','javascripts');?>'); 
-        <?php if( 0 === strpos(current_url(), '/items/show') ):?>
-            loadJS('<?php echo src('items-show2.js','javascripts');?>'); // items-show.js
-        <?php endif;?>  
-    </script>
-
 </head>
  <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
     <a href="#content" id="skipnav"><?php echo __('Skip to main content'); ?></a>
     <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
         <header role="banner">
             <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>
-            <div id="site-title"><?php echo link_to_home_page(theme_logo()); ?>
-                <h2 class="tagline">What Happened in Your Town?</h2>
-            </div>
+            <div id="site-title"><?php echo link_to_home_page(theme_logo()); ?></div>
 
             <div id="search-container" role="search">
                 <?php if (get_theme_option('use_advanced_search') === null || get_theme_option('use_advanced_search')): ?>

@@ -139,7 +139,6 @@
                 <p class="item-description">document, approximately 14 3/4&quot; (37.6 cm) x 9 5/8&quot; (24.6 cm)</p>
             </div> 
         </div>end related-items-->
-
     </div><!--end item-info-->-->
 
     <hr>

@@ -1,0 +1,399 @@
+
+
+body {
+	background: #ffffff url("/files/rhh-images/rhh-bkgnd.jpg") no-repeat;
+}
+
+header {
+	background-color: rgba(191, 179, 153, 0.6);
+  padding: 36px 3%;
+}
+
+@media only screen and (max-width: 767px) {
+  header {
+    /*width: 300px;*/
+    width: 100%;
+  } 
+}
+
+h1, h2, h3 {
+  font-family: 'Libre Baskerville', serif;
+  color: #3A4E84;
+}
+
+h1 {
+  text-transform: none;
+  letter-spacing: 0; 
+  color: #A5270E;
+}
+
+#home #content h2 {
+  color: #A5270E;
+  font-variant: small-caps;
+  letter-spacing: 0.075em;
+  text-transform: none;
+}
+
+h3 {
+  line-height: 20px;
+  color: #3A4E84;
+}
+
+#content {
+  /*padding: 36px 3%;this padding looks nice but throws off the basic 2 column layout*/
+}
+
+@media only screen and (max-width: 767px) {
+  #content {
+    /*width: 300px;*/
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .items #content {
+    /*width: 300px;*/
+    width: 100%;
+  }
+}
+
+#header-content {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  width: 960px;
+  padding: 36px 0;
+  position: relative;
+}
+  
+#header-content:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	#header-content {
+  	width: 768px;
+  } 
+}
+
+@media only screen and (max-width: 767px) {
+	#header-content {
+	  /*width: 300px;*/
+    width: 100%;
+	}
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	#header-content {
+	  width: 420px;
+	}
+}
+
+#site-title {
+  color: #A5270E;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 42px;
+  letter-spacing: 0;
+  text-transform: none;
+  width: 90%;
+}
+
+@media screen and (max-width: 768px) {
+  #site-title {
+    line-height: 42px;
+  }
+}
+
+#site-title a {
+  color: #A5270E; 
+}
+
+#site-title h2.tagline {
+	font-style: italic;
+	margin-top: 4px;
+	margin-bottom: 0;
+  font-variant: none;
+  letter-spacing: 0;
+  color: #333;
+}
+
+#search-container {
+	width: 30%
+}
+
+#primary-nav {
+	background-color: #BFB399;
+}
+
+#primary-nav a {
+	background-color: #BFB399;
+  color: #A5270E;
+  font-family: 'Libre Baskerville';
+  font-size: 1.15em;
+  font-variant: small-caps;
+  letter-spacing: 0.075em;
+  padding: 9px 1.25em;
+}
+
+#primary-nav li.active > a, #primary-nav a:hover {
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  #mobile-nav > a:first-child {
+    font-family: 'Libre Baskerville';
+    font-variant: small-caps;
+    letter-spacing: 0.075em;
+    background: #BFB399;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #mobile-nav ul {
+    background: #BFB399;
+    border-bottom: 1px solid #f0e9da;
+  }
+  #mobile-nav li {
+    background: #BFB399;
+  }
+}
+
+@media only screen and (max-width: 768px) and (max-width: 767px) {
+  #mobile-nav {
+    /*width: 300px;*/
+    width: 100%;
+  }
+}
+
+h2.browse-menu, .exhibit h2, .collection h2 {/* Browse Menu Pages (items, themes, contributors) */
+  font-variant: none;
+  letter-spacing: 0; 
+}
+
+/* -- Links -- */
+a:link, a:visited {
+  color: #3A4E84;
+}
+
+a:hover, a:active {
+  color: #A5270E;
+}
+
+/* -- rules and image outlines --*/
+#header-image img {
+  border: solid #f0e9da;
+}
+
+#search-container input[type=text], #search-container button {
+  border: 1px solid #f0e9da;
+}
+
+#content {
+  border: 1px solid #f0e9da;
+}
+
+.image img {
+  border: 1px solid #f0e9da;
+}
+
+#featured-exhibit img {
+  border: 1px solid #f0e9da;
+}      
+
+#recent-items .item {
+  border-bottom: 1px solid #f0e9da;
+}
+
+.collections .item-img a {
+  border: 1px solid #f0e9da;
+}
+
+.collections .item {
+  border-top: 1px solid #f0e9da;
+}
+
+.collections .item:last-of-type {
+  border-bottom: 1px solid #f0e9da;
+}
+  
+#home #primary > div:last-of-type {
+  border-bottom: 1px solid #f0e9da;
+}
+
+#featured-exhibit, #featured-collection, #featured-item  {
+  background-color: #f0e9da;
+}
+
+footer {
+	background-color: #BFB399;
+	width: 100%;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  footer {
+    width: 100%; }
+}
+
+@media only screen and (max-width: 767px) {
+  footer {
+    width: 100%;
+    padding: 0 1em;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  footer {
+    width: 100%; }
+}
+
+footer .navigation a {
+  color: #A5270E;
+  font-family: 'Libre Baskerville';
+  font-size: 1em;
+  font-variant: small-caps;
+  letter-spacing: 0.075em;
+  padding: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  footer .navigation a {
+    padding: 0;
+  }
+}
+
+#footer-content, #footer-logos {
+	width: 960px;
+	margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  #footer-content, #footer-logos {
+    width: 768px; }
+}
+
+@media only screen and (max-width: 767px) {
+  #footer-content, #footer-logos {
+    /*width: 300px;*/
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #footer-logos a img {
+  width: auto;
+  height: 5em; }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  #footer-content, #footer-logos {
+    width: 420px; }
+}
+
+/* -- Item Page -- */
+h1.item-title {
+  font-style: italic;
+}
+
+div.about-item {
+	float: left;
+	width: 48%;
+	margin-right: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  div.about-item  {
+  float: none;
+  width: 100%;
+  margin-right: 0; }
+}
+
+div.related-items {
+	float: right;
+	width: 48%;
+}
+
+/* for related items */
+div#item-relations-display-item-relations table {
+  width: 50%;
+}
+
+img.related-item-image {
+  height: 126px;
+  padding: 2px;
+  border: 1px solid #f0e9da;
+}
+
+div.item-story, div.item-info {
+  overflow: auto;
+}
+
+div.image-jpeg {
+	float: left;
+	margin-right: 10px;
+  width: 460px; /* need to make responsive */
+}
+
+.item-file img, .item-img a img {
+  padding: 2px;
+  border: 1px solid #f0e9da;
+}
+
+div.story {
+	clear: none;
+	overflow: visible;
+}
+
+.element {
+  margin-bottom: 2em;
+}
+
+
+/*.element-text {
+  margin-bottom: 1em;
+}
+
+.items.show h3 {
+  margin-bottom: 0;
+}*/
+
+.element h3 {
+  margin-bottom: 3px;
+  margin-top: 0;
+}
+
+.transcription {
+  background-color: #EFEBE4;
+  padding: 10px;
+}
+
+/* -- Browse Items --*/
+@media only screen and (max-width: 767px) {
+  .browse .item-meta {
+    width: 100%;
+  }
+}
+
+/* -- Themes/Exhibit Pages --*/
+@media only screen and (max-width: 767px) {
+  .browse .collection h2, .browse .exhibit h2 {
+    float: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .exhibits #content > h1:first-of-type, #exhibit-blocks, #exhibit-page-navigation, .exhibits.summary #primary {
+      width: 100%;
+  }
+}
+
+/* colors
+red: #A5270E
+blue: #3A4E84
+beige: #BFB399
+lite beige for outlines: #f0e9da;
+dark grey text: 333333
+*/

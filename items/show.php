@@ -12,20 +12,14 @@
         <!-- Item Title -->
         <h1 class="item-title"><?php echo metadata('item', array('Dublin Core','Title')); ?></h1>
 
-        <?php if ((get_theme_option('Item FileDisplay') == 1) && metadata('item', 'has files')): ?>
-        <?php echo files_for_item(array('imageSize' => 'fullsize')); ?>
+        <?php if (metadata('item', 'has files')): ?>
+            <div class="item-file image-jpeg">
+                <?php echo item_image('fullsize',array('class' => 'full'),0, $item); // 1st image only ?> 
+            </div>           
         <?php endif; ?>
 
         <!-- Items metadata - echo all_element_texts removed -->
         
-        <!-- Item FileDisplay -->
-        <?php if ((get_theme_option('Item FileDisplay') == 0) && metadata('item', 'has files')): ?>
-          <h3><?php echo __('Files'); ?></h3>
-          <div id="item-images">
-               <?php echo files_for_item(); ?>
-          </div>
-        <?php endif; ?>
-
          <div class="element story">
             <!-- <h3>Story</h3> -->
             <div class="element-text">
@@ -115,13 +109,16 @@
         <h2>Transcription</h2>
         <div class="element-text transcription"><?php echo metadata('item', array('Item Type Metadata','Text')) ?></div>
       </div>
+      <hr>
     <?php endif; ?>
 
-    <hr>
+    <!-- adapted from Erin's Cleavand historical -->
+    <?php rhh_item_images($item);?>  
+    <!-- ?php queue_js_file('item-photos'); ? -->
 
     <!-- map -->
-    	<?php if( plugin_is_active('Geolocation') ){ 
-		echo get_specific_plugin_hook_output('Geolocation', 'public_items_show', array('view' => $this, 'item' => $item)); 
+	<?php if( plugin_is_active('Geolocation') ){ 
+	   echo get_specific_plugin_hook_output('Geolocation', 'public_items_show', array('view' => $this, 'item' => $item)); 
 	}  ?>
 
     <!-- item navigation -->
