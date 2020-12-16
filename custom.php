@@ -70,6 +70,38 @@ function mh_file_caption($file,$inlineTitle=true){
   }
 }
 
+/*
+** Build caption from description, source, creator, date
+*/
+function rhh_file_caption($file){
+
+  $caption=array();
+
+  $description = metadata( $file, array( 'Dublin Core', 'Description' ) );
+  if( $description ) {
+    $caption[]= $description;
+  }
+
+  $source = metadata( $file, array( 'Dublin Core', 'Source' ) );
+  if( $source ) {
+    $caption[]= __('Source: %s',$source);
+  }
+
+  $creator = metadata( $file, array( 'Dublin Core', 'Creator' ) );
+  if( $creator ) {
+    $caption[]= __('Creator: %s', $creator);
+  }
+
+  $date = metadata( $file, array( 'Dublin Core', 'Date' ) );
+  if( $date ) {
+    $caption[]= __('Date: %s', $date);
+  }
+
+  if( count($caption) ){
+    return implode(" ", $caption);
+  }
+}
+
 
 /*
 ** Loop through and display image files
@@ -95,7 +127,7 @@ function rhh_item_images($item,$index=1){
 
       $desc=metadata($file, array('Dublin Core', 'Description'));
 
-      $caption=$title_formatted.($desc ? ': ' : ' ~ ').mh_file_caption($file,false);
+      $caption=rhh_file_caption($file);
 
       $src=WEB_ROOT.'/files/fullsize/'.str_replace( array('.JPG','.jpeg','.JPEG','.png','.PNG','.gif','.GIF'), '.jpg', $file->filename );
 
@@ -111,8 +143,10 @@ function rhh_item_images($item,$index=1){
         $html.= '</a>';
 
         // $html.= '<figcaption id="caption'.$captionID.'" class="not-yet-defined;">'.$title.'</figcaption>';
-        $html.= '<figcaption id="caption'.$captionID.'" class="not-yet-defined;">'.$caption.'</figcaption>';
+        // $html.= '<figcaption id="caption'.$captionID.'" class="not-yet-defined;">'.$caption.'</figcaption>';
         //$html.= '<figcaption id="caption'.$captionID.'" hidden class="hidden;">'.strip_tags($caption,'<a><u><strong><em><i><cite>').'</figcaption>';
+         $html.= '<figcaption id="caption'.$captionID.'" class="not-yet-defined;"><h4>'.$title.'</h4>';
+         $html.= '<p>'.$caption.'</p></figcaption>';
 
       $html.= '</figure>';
 
