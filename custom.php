@@ -110,7 +110,9 @@ function rhh_item_images($item,$index=1){
 
         $html.= '</a>';
 
-        $html.= '<figcaption id="caption'.$captionID.'" class="not-yet-defined;">'.$title.'</figcaption>';
+        // $html.= '<figcaption id="caption'.$captionID.'" class="not-yet-defined;">'.$title.'</figcaption>';
+        $html.= '<figcaption id="caption'.$captionID.'" class="not-yet-defined;">'.$caption.'</figcaption>';
+        //$html.= '<figcaption id="caption'.$captionID.'" hidden class="hidden;">'.strip_tags($caption,'<a><u><strong><em><i><cite>').'</figcaption>';
 
       $html.= '</figure>';
 
