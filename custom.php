@@ -25,7 +25,7 @@ function db_item_images($item,$index=1){
   }
   if ($html): ?>
   <div id="item-images">
-    <h3>See Also</h3>
+    <h3>Images</h3>
     <?php echo $html;?>
   </div>
   <?php endif;
@@ -120,7 +120,7 @@ function rhh_item_images($item,$index=1){
     }   
   }
   if($html): ?>
-    <h3><?php echo __('Images');?></h3>
+    <h3><?php echo __('See Also');?></h3>
     <figure id="item-photos" class="flex flex-wrap" itemscope itemtype="http://schema.org/ImageGallery">
       <?php echo $html;?>
     </figure>   

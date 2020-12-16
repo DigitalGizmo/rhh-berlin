@@ -352,9 +352,15 @@ div.story {
 }
 
 /* for see also files */
-#item-photos .flex-image a {
+figure.flex-image {
+  display: inline-block;
+}
+
+#item-photos .flex-image a.file {
   background-color: #BFB399;
   background-size: cover;
+  background-position: center;
+  border: 1px solid #bfb399;
   display: block;
   height: 200px;
   width: 200px;
