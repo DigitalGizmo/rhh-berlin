@@ -351,14 +351,14 @@ div.story {
   margin-bottom: 2em;
 }
 
-
-/*.element-text {
-  margin-bottom: 1em;
+/* for see also files */
+#item-photos .flex-image a {
+  background-color: #BFB399;
+  background-size: cover;
+  display: block;
+  height: 200px;
+  width: 200px;
 }
-
-.items.show h3 {
-  margin-bottom: 0;
-}*/
 
 .element h3 {
   margin-bottom: 3px;

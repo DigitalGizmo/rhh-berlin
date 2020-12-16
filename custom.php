@@ -25,7 +25,7 @@ function db_item_images($item,$index=1){
   }
   if ($html): ?>
   <div id="item-images">
-    <h3>Images</h3>
+    <h3>See Also</h3>
     <?php echo $html;?>
   </div>
   <?php endif;
@@ -106,7 +106,7 @@ function rhh_item_images($item,$index=1){
         $html.= '<a href="'.$src.'" title="'.$title.'" class="file flex" style="background-image: url(\''.$src.'\');" data-size="">';
 
           /* added by Don */
-          $html.= '<img src="'.$thumbsrc.'" itemprop="thumbnail" alt="Image description" />';
+          //$html.= '<img src="'.$thumbsrc.'" itemprop="thumbnail" alt="Image description" />';//
 
         $html.= '</a>';
 
