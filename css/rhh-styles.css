@@ -45,14 +45,12 @@ h3 {
 
 @media only screen and (max-width: 767px) {
   #content {
-    /*width: 300px;*/
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 767px) {
   .items #content {
-    /*width: 300px;*/
     width: 100%;
   }
 }
@@ -82,7 +80,6 @@ h3 {
 
 @media only screen and (max-width: 767px) {
 	#header-content {
-	  /*width: 300px;*/
     width: 100%;
 	}
 }
@@ -139,7 +136,7 @@ h3 {
   padding: 9px 1.25em;
 }
 
-#primary-nav li.active > a, #primary-nav a:hover {
+#primary-nav li.active > a, #primary-nav a:hover, #primary-nav a:active  {
   color: #fff;
 }
 
@@ -164,7 +161,6 @@ h3 {
 
 @media only screen and (max-width: 768px) and (max-width: 767px) {
   #mobile-nav {
-    /*width: 300px;*/
     width: 100%;
   }
 }
@@ -321,10 +317,17 @@ div#item-relations-display-item-relations table {
   width: 50%;
 }
 
+@media only screen and (max-width: 767px) {
+  div#item-relations-display-item-relations table {
+    width: 100%;
+  }
+}
+
 img.related-item-image {
-  height: 126px;
-  padding: 2px;
   border: 1px solid #f0e9da;
+  height: 126px;
+  margin-right: 1em;
+  padding: 2px;
 }
 
 div.item-story, div.item-info {
@@ -334,7 +337,7 @@ div.item-story, div.item-info {
 div.image-jpeg {
 	float: left;
 	margin-right: 10px;
-  width: 460px; /* need to make responsive */
+  width: 460px; /* need to make responsive? */
 }
 
 .item-file img, .item-img a img {
@@ -376,7 +379,7 @@ figcaption h4 {
 }
 
 figcaption p {
-  margin: 0 0 1em 0;
+  display: none;
 }
 
 /* for see also files in photoswipe lightbox  */
