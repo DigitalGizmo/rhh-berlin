@@ -352,8 +352,13 @@ div.story {
 }
 
 /* for see also files */
+figure#item-photos {
+  margin: 0;
+}
+
 figure.flex-image {
   display: inline-block;
+  margin: 0 2.5em 0 0;
 }
 
 #item-photos .flex-image a.file {
@@ -364,6 +369,14 @@ figure.flex-image {
   display: block;
   height: 200px;
   width: 200px;
+}
+
+figcaption h4 {
+  margin: 0.5em 0 0 0;
+}
+
+figcaption p {
+  margin: 0 0 1em 0;
 }
 
 .element h3 {
