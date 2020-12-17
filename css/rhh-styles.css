@@ -351,7 +351,7 @@ div.story {
   margin-bottom: 2em;
 }
 
-/* for see also files */
+/* for see also files on item page */
 figure#item-photos {
   margin: 0;
 }
@@ -377,6 +377,15 @@ figcaption h4 {
 
 figcaption p {
   margin: 0 0 1em 0;
+}
+
+/* for see also files in photoswipe lightbox  */
+div.pswp__caption__center h4 {
+  margin: 0;
+}
+
+div.pswp__caption__center p {
+  margin: 0; 
 }
 
 .element h3 {
